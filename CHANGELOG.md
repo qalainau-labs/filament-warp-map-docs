@@ -5,6 +5,12 @@ All notable changes to `qalainau/filament-warp-map` will be documented in this f
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-11-20
+
+### Fixed
+
+- **Console error `warpMap is not defined`**: on pages where Livewire re-renders a map inside another Alpine component, the browser console could show `warpMap is not defined` before the component's script had arrived. Empty components are now registered up front, and the real ones replace them as soon as they load. No visible change.
+
 ## [1.0.0] - 2026-11-19
 
 ### Added
