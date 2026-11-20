@@ -5,6 +5,12 @@ All notable changes to `qalainau/filament-warp-map` will be documented in this f
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-11-20
+
+### Fixed
+
+- **Easier-to-read small text**: the hint under the location and area fields in dark mode, and the gray line under the selected person on the routes page, now have enough contrast against their background (they were below the WCAG AA ratio of 4.5:1).
+
 ## [1.0.1] - 2026-11-20
 
 ### Fixed
