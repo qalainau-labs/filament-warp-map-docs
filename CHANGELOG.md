@@ -5,6 +5,24 @@ All notable changes to `qalainau/filament-warp-map` will be documented in this f
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+## [1.1.0] - 2026-11-22
+
+### Fixed
+
+- **The default name of an imported plan uses the panel's date**: it used the app's UTC date, so it could show the next day during the UTC night. It now uses the panel's time zone.
+- **`Invalid LngLat latitude value` in the browser console**: typing a value outside the range into the latitude or longitude of `LocationField` (for example 95, or -200 on its way to -20) made the map throw an error in the console. Now the map ignores a value outside latitude -90…90 / longitude -180…180 while you type: the pin stays where it was, and moves again as soon as both numbers are back in range.
+
+### Added
+
+- **`LocationField::required()`**: makes both the latitude and the longitude required. The range check (latitude -90 to 90, longitude -180 to 180) was already there and stays on whether or not the field is required. Without `required()` nothing changes.
+- **Swap a standard page**: `mapPage()`, `territoriesPage()`, `routesPage()` and `myRoutePage()` on `FilamentWarpMapPlugin` take a class that extends the standard page (the URL and route name stay the same, so links between pages keep working). `mapPage(false)` leaves the map page out; the other three follow `territories()` and `routes()`. Matching getters: `getMapPage()`, `getTerritoriesPage()`, `getRoutesPage()`, `getMyRoutePage()`.
+
+### Fixed
+
+- **Page access rules on a replaced page**: when the app replaced a standard page or resource with a subclass (`xxxPage()`/`xxxResource()`), `canAccessUsing()` and `canWriteUsing()` received the subclass as `$page`, so a rule such as `$page !== Projects::class` did not match and a page the app had closed still opened (HTTP 200). `$page` is now always the plugin's own standard class, whatever the app swaps in. A rule that compared `$page` with the app's own subclass must compare with the standard class instead.
+
 ## [1.0.2] - 2026-11-20
 
 ### Fixed

@@ -679,6 +679,8 @@ LocationField::make()
     ->height(320),
 ```
 
+Add `->required()` to make both coordinates required (a place with no position can't be saved). The range is always checked, required or not: latitude -90 to 90, longitude -180 to 180. The error messages are Filament's own, so they come in your panel's language.
+
 The **Find from the address** button appears only when `address()` is set and geocoding is on; with `geocoding(false)` the field shows just the map and the two coordinates.
 
 **A small map in an infolist:**
@@ -865,6 +867,7 @@ FilamentWarpMapPlugin::make()
 | `recordArrivalPosition(false)` | On My route, **Arrived** records the time only: the position is never asked for or stored. |
 | `center(lat, lng, zoom)` / `maxPoints(50000)` / `distanceUnit('km')` | The map. |
 | `territories(false)` / `routes(false)` | Leave out the territory or route pages. |
+| `mapPage(bool\|string)` / `territoriesPage(string)` / `routesPage(string)` / `myRoutePage(string)` | Swap a standard page for your own class that extends it (`MapPage`, `Territories`, `Routes`, `MyRoute`), for example to add a header action or your own text. Anything else throws an `InvalidArgumentException`. The URL and route name stay the same, so links between the pages keep working. `mapPage(false)` leaves the map page out. |
 | `navigationGroup('Field service')` | Where the pages go in the menu. Also takes a closure — see [Translated labels](#translated-labels). |
 | `canAccess()` / `canManageTerritories()` / `canPlanRoutes()` | See [Who can do what](#who-can-do-what). |
 | `tenantKeyUsing(fn () => …)` | See [Multi-tenancy](#multi-tenancy). |
