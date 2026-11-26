@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-11-26
+
+### Fixed
+
+- Waiting for the public Nominatim server's turn (one request a second) now counts its 5 seconds on the real clock. Tests that freeze time with `travelTo()` while another request held the turn waited forever. After 5 seconds it still throws `LockTimeoutException`, as before.
+
 ## [1.1.0] - 2026-11-22
 
 ### Fixed
