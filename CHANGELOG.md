@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.2] - 2026-11-27
+
+### Fixed
+
+- **The calendar stayed open over the person field**: in “Add to a route” (on the map and as the table's bulk action) and in “Share between people”, the calendar of the date stayed open after you chose a date and covered the field below it, so the first click on “Person” did nothing. The calendar now closes as soon as a date is chosen.
+
 ## [1.1.1] - 2026-11-26
 
 ### Fixed
