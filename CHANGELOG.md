@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.4] - 2026-11-28
+
+### Fixed
+
+- **When the server's reply to a change went missing, the map pages reloaded without a word** (since 1.1.3). Marking a visit done or skipped, "Arrived", reordering territories, changing a route (reorder, optimize, add or remove a visit) and adopting a distribution now say "We could not confirm that your change was saved. The map has been reloaded, so check it before trying again." and show what the server actually has. Saving a territory shape kept the drawing open with no message, although the server may have saved it: it now says so and keeps your drawing, so pressing "Save the shape" again only overwrites the same shape (new text keys `map.save_unknown` and `territories.shape_unknown`, 10 languages).
+
 ## [1.1.3] - 2026-11-28
 
 ### Fixed
