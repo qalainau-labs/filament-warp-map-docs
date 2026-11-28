@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.3] - 2026-11-28
+
+### Fixed
+
+- **Under heavy load, the map, routes, territories and table map pages could stop with an error** (`Cannot read properties of undefined (reading 'types')`, `'date'`, `'people'`, `'plan'`, `'points'`, `'length'`) when the server's reply went missing. Reading points, routes and areas now asks once more and otherwise keeps what the page already shows; "Nearest people" can be pressed again. Changes (adding or removing a visit, reordering, marking a visit done, arriving, adopting a distribution, saving an area) are never sent twice: when their reply is missing, the page reloads instead of saying "added".
+- A map whose Livewire component was replaced while its points were still loading (switching between table and map, re-filtering) no longer throws `Source "warp-points" already exists` when the late answer arrives. The same late answer is now ignored on every map page.
+
 ## [1.1.2] - 2026-11-27
 
 ### Fixed
